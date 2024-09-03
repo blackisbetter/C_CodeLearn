@@ -223,8 +223,8 @@ int main()
 //}
 //printf("%d\n", max);
 
-int a = 0;
-float f = 0.0f;//小数后面要加f，才是float类型
+//int a = 0;
+//float f = 0.0f;//小数后面要加f，才是float类型
 //0.0默认是double类型
 //3.14
 
