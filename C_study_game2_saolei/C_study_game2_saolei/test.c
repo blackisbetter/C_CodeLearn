@@ -1,65 +1,20 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include "game2.h"
 
-
-void menu()
+void game(void)
 {
-	printf("******************************\n");
-	printf("********    0.exit    ********\n");
-	printf("********    1.play    ********\n");
-	printf("******************************\n");
-}
+	char mine[ROWS][COLS] = { 0 };
+	char show[ROWS][COLS] = { 0 };
 
-void game()
-{
-	//É¨À×µÄ¶şÎ¬Êı×é
-	char mine[ROWS][COLS] = { 0 };//²¼ÖÃÀ×µÄĞÅÏ¢
-	char show[ROWS][COLS] = { 0 };//´òÓ¡³öÀ´µÄĞÅÏ¢
-	//³õÊ¼»¯
-	InitBoard(mine,ROWS,COLS,'0');
-	InitBoard(show,ROWS,COLS,'*');
+	InitBoard(mine, ROWS, COLS, '0');
+	InitBoard(show, ROWS, COLS, '*');
 
-	
-	//Ö®ºó¾ÍÊÇ²¼ÖÃÀ×µÄĞÅÏ¢
-	SetMine(mine,ROW,COL);
-
-	//´òÓ¡
+	SetMine(mine, ROW, COL);
 	DisplayBoard(show, ROW, COL);
-
-
-	//²éÀ×
-	FineMine(mine,show,ROW,COL);
+	FineMine(mine, show, ROW, COL);
 }
 
 int main()
 {
-	//ÖÆ×÷É¨À×ÓÎÏ·
-	//²¼ÖÃºÃÀ×µÄĞÅÏ¢
-	//ÅÅ²é³öÀ×µÄĞÅÏ¢
-
-	int input = 0;
-	srand((unsigned int)time(NULL));
-
-	do
-	{
-		menu();
-		printf("ÇëÊäÈëÊı×Ö:>");
-		scanf("%d",&input);
-		switch (input)
-		{
-		case 1:
-			game();
-			break;
-		case 0:
-			printf("ÍË³öÓÎÏ·!\n");
-			break;
-		default: 
-			printf("ÊäÈëµÄÊı×ÖÓĞÎó£¬ÇëÖØĞÂÊäÈë!\n");
-			break;
-		}
-
-	} while (input);
-
-
+	run_game_loop(game, "é€€å‡ºæ‰«é›·æ¸¸æˆ!");
 	return 0;
 }

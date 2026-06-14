@@ -1,24 +1,10 @@
-#pragma once
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#ifndef C_STUDY_9_5_GAME_H
+#define C_STUDY_9_5_GAME_H
 
-#define ROW 3
-#define COL 3
+/*
+ * This header forwards to the canonical tic-tac-toe game implementation
+ * in C_study_game1 to avoid code duplication.
+ */
+#include "../../C_study_game1/C_study_game1/game.h"
 
-//≥ı ºªØ∆Â≈Ã
-void InitBoard(char board[ROW][COL],int row,int col);
-
-//¥Ú”°∆Â≈Ã
-void DisplayBoard(char board[ROW][COL],int row,int col);
-
-//ÕÊº“œ¬∆Â
-void PlayerMove(char board[ROW][COL],int row,int col);
-
-//µÁƒ‘œ¬∆Â
-void ComputerMove(char board[ROW][COL],int row,int col);
-
-//≈–∂œ ‰”Æ
-char IsWin(char board[ROW][COL],int row,int col);
-
-
+#endif /* C_STUDY_9_5_GAME_H */
