@@ -34,7 +34,7 @@ void DisplayBoard(char board[ROWS][COLS], int row, int col)
 	for (i=1;i<=row;i++)
 	{
 		printf("%d ", i);
-		for (j=1;j<col;j++)
+		for (j=1;j<=col;j++)
 		{
 			printf("%c ", board[i][j]);
 		}
@@ -70,8 +70,8 @@ int get_mine_count(char mine[ROWS][COLS],int x,int y)
 		+ mine[x][y - 1]
 		+ mine[x + 1][y - 1]
 		+ mine[x - 1][y]
+		+ mine[x - 1][y + 1]
 		+ mine[x][y + 1]
-		+ mine[x + 1][y - 1]
 		+ mine[x + 1][y]
 		+ mine[x + 1][y + 1] - 8 * '0';//因为要返回数字，char里的是字符
 }
@@ -86,33 +86,35 @@ void FineMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 	while (win<row * col -EASY_TYPE)
 	{
 		printf("请选择你要查询的坐标:>");
-		scanf("%d%d", &x, &y);
+		if (scanf("%d%d", &x, &y) != 2)
+		{
+			printf("输入无效，请输入两个整数!\n");
+			while (getchar() != '\n');
+			continue;
+		}
+		if (x < 1 || x > row || y < 1 || y > col)
+		{
+			printf("输入的坐标错误!\n");
+			continue;
+		}
 		if (show[x][y] !='*')
 		{
 			printf("改坐标已被排查过!\n");
 		}
 		else
 		{
-			if (x >= 1 && x <= row && y >= 1 && y <= col)//棋盘内
+			if (mine[x][y] == '1')
 			{
-				if (mine[x][y] == '1')
-				{
-					printf("你已经被雷炸死!\n");
-					DisplayBoard(mine, ROW, COL);
-					break;
-				}
-				else
-				{
-					win++;
-					int count = get_mine_count(mine,x,y);
-					show[x][y] = count + '0';//把数字改为数字字符
-					DisplayBoard(show, ROW, COL);
-
-				}
+				printf("你已经被雷炸死!\n");
+				DisplayBoard(mine, ROW, COL);
+				break;
 			}
-			else//棋盘外
+			else
 			{
-				printf("输入的坐标错误!\n");
+				win++;
+				int count = get_mine_count(mine,x,y);
+				show[x][y] = count + '0';//把数字改为数字字符
+				DisplayBoard(show, ROW, COL);
 			}
 		}
 	}

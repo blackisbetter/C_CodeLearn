@@ -74,6 +74,9 @@ int print_month_day(int month,int flag)
 			else
 				return 28;
 			break;
+		default:
+			printf("Invalid month: %d\n", month);
+			return -1;
 	}
 }
 
@@ -203,20 +206,29 @@ int main()
 
 	int year = 0;
 	int month= 0;
-	scanf("%d%d",&year,&month);
+	if (scanf("%d%d",&year,&month) != 2)
+	{
+		printf("Invalid input: expected year and month\n");
+		return 1;
+	}
+	if (month < 1 || month > 12)
+	{
+		printf("Invalid month: %d (expected 1-12)\n", month);
+		return 1;
+	}
 	int flag = 0;//默认为平年
 	//先判断年份是闰年还是平年
 	if ((year %4 == 0 && year % 100 != 0)||(year %400 ==0))
 	{
 		flag = 1;//flag为1时，是闰年
-		int day=print_month_day(month,flag);
-		printf("%d\n",day);
 	}
-	else
+	int day = print_month_day(month, flag);
+	if (day == -1)
 	{
-		int day = print_month_day(month, flag);
-		printf("%d\n", day);
+		printf("Failed to get days for month %d\n", month);
+		return 1;
 	}
+	printf("%d\n", day);
 
 
 	return 0;

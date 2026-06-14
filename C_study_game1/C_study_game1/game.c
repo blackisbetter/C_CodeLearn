@@ -54,8 +54,13 @@ void PlayerMove(char board[ROW][COL], int row, int col)
 	while (1)
 	{
 		printf("请选择你要下棋的位置的坐标:>");
-		
-		scanf("%d%d", &x, &y);
+
+		if (scanf("%d%d", &x, &y) != 2)
+		{
+			printf("输入无效，请输入两个整数!\n");
+			while (getchar() != '\n');
+			continue;
+		}
 
 		//判断输入坐标的合法性
 		if (x >= 1 && x <= row && y >= 1 && y <= col)

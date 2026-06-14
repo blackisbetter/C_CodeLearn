@@ -69,7 +69,12 @@ int main()
 	{
 		menu();
 		printf("请选择数字:>");
-		scanf("%d",&input);
+		if (scanf("%d",&input) != 1)
+		{
+			printf("输入无效，请输入数字!\n");
+			while (getchar() != '\n');
+			continue;
+		}
 
 		switch (input)
 		{

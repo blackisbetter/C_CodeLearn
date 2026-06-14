@@ -22,7 +22,7 @@ int count_num_of_1(unsigned int n)//注意这里要使用无符号整型，因�
 	int i = 0;
 	for (i=0;i<32;i++)
 	{
-		if ((n >> i) & 1 ==1)
+		if (((n >> i) & 1) == 1)
 		{
 			count++;
 		}

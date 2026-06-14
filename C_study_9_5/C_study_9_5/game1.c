@@ -51,7 +51,12 @@ void PlayerMove(char board[ROW][COL], int row, int col)
 	while (1)
 	{
 		printf("请输入你要下的坐标:>");
-		scanf("%d%d", &x, &y);
+		if (scanf("%d%d", &x, &y) != 2)
+		{
+			printf("输入无效，请输入两个整数!\n");
+			while (getchar() != '\n');
+			continue;
+		}
 
 		//合法的坐标位置
 		if (x >= 1 && x <= row && y >= 1 && y <= col)
