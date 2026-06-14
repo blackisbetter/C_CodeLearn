@@ -1,9 +1,8 @@
-#pragma once
+#ifndef MINESWEEPER_GAME2_H
+#define MINESWEEPER_GAME2_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
+#include "../../shared/common.h"
+#include "../../shared/menu_utils.h"
 
 #define ROWS 11
 #define COLS 11
@@ -11,16 +10,9 @@
 #define COL 9
 #define EASY_TYPE 10
 
-//初始化
-void InitBoard(char board[ROWS][COLS], int rows,int cols,char ret);
+void InitBoard(char board[ROWS][COLS], int rows, int cols, char ret);
+void DisplayBoard(char board[ROWS][COLS], int row, int col);
+void SetMine(char board[ROWS][COLS], int row, int col);
+void FineMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col);
 
-//打印
-void DisplayBoard(char board[ROWS][COLS],int row,int col);
-
-
-//布置雷的信息
-void SetMine(char board[ROWS][COLS],int row,int col);
-
-//查雷
-void FineMine(char mine[ROWS][COLS],char show[ROWS][COLS],int row,int col);
-
+#endif /* MINESWEEPER_GAME2_H */
