@@ -11,16 +11,16 @@
 #define COL 9
 #define EASY_TYPE 10
 
-//³õÊ¼»¯
+//åˆå§‹åŒ–
 void InitBoard(char board[ROWS][COLS], int rows,int cols,char ret);
 
-//´òÓ¡
+//æ‰“å°
 void DisplayBoard(char board[ROWS][COLS],int row,int col);
 
 
-//²¼ÖÃÀ×µÄĞÅÏ¢
+//å¸ƒç½®é›·çš„ä¿¡æ¯
 void SetMine(char board[ROWS][COLS],int row,int col);
 
-//²éÀ×
+//æŸ¥é›·
 void FineMine(char mine[ROWS][COLS],char show[ROWS][COLS],int row,int col);
 

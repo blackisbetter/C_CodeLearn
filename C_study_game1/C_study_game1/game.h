@@ -7,18 +7,18 @@
 #define ROW 3
 #define COL 3
 
-//³õÊ¼»¯ÆåÅÌ
+//åˆå§‹åŒ–æ£‹ç›˜
 void InitBoard(char board[ROW][COL],int row,int col);
 
-//´òÓ¡ÆåÅÌ¸ñ
+//æ‰“å°æ£‹ç›˜æ ¼
 void DisplayBoard(char board[ROW][COL], int row, int col);
 
-//Íæ¼ÒÏÂÆå
+//ç©å®¶ä¸‹æ£‹
 void PlayerMove(char board[ROW][COL],int row,int col);
 
-//µçÄÔÏÂÆå
+//ç”µè„‘ä¸‹æ£‹
 void ComputerMove(char board[ROW][COL], int row, int col);
 
-//ÅĞ¶ÏÊäÓ®
+//åˆ¤æ–­è¾“èµ¢
 char IsWin(char board[ROW][COL],int row,int col);
 
