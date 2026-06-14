@@ -110,12 +110,12 @@ int main()
 	////如果返回值是0，表示两个字符串相等
 	//int i = 0;
 	//char password[20] = { 0 };
-	////假设密码是字符串：abcdef
+	////假设密码是字符串（注意：实际项目中不要硬编码密码）
 	//for (i=0;i<3;i++)
 	//{
 	//	printf("请输入密码:>");
-	//	scanf("%s", password);
-	//	if (strcmp(password, "abcdef") == 0)
+	//	scanf("%19s", password);  // NOTE: Always use width specifier to prevent buffer overflow
+	//	if (strcmp(password, "YOUR_PASSWORD_HERE") == 0)  // WARNING: Never hardcode passwords in real code
 	//	{
 	//		printf("登录成功\n");
 	//		break;
