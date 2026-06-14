@@ -4,6 +4,9 @@
 #include <string.h>
 #include <assert.h>
 
+// WARNING: This function does not check destination buffer size.
+// In production code, use strncpy() or snprintf() with explicit size limits
+// to prevent buffer overflow vulnerabilities.
 char* my_strcpy(char* dest,const char* src)//”≈ªØ∞Ê±æ
 {
 	char* ret = dest;
