@@ -12,30 +12,30 @@ void menu()
 
 void game()
 {
-	//É¨À×µÄ¶şÎ¬Êı×é
-	char mine[ROWS][COLS] = { 0 };//²¼ÖÃÀ×µÄĞÅÏ¢
-	char show[ROWS][COLS] = { 0 };//´òÓ¡³öÀ´µÄĞÅÏ¢
-	//³õÊ¼»¯
+	//æ‰«é›·çš„äºŒç»´æ•°ç»„
+	char mine[ROWS][COLS] = { 0 };//å¸ƒç½®é›·çš„ä¿¡æ¯
+	char show[ROWS][COLS] = { 0 };//æ‰“å°å‡ºæ¥çš„ä¿¡æ¯
+	//åˆå§‹åŒ–
 	InitBoard(mine,ROWS,COLS,'0');
 	InitBoard(show,ROWS,COLS,'*');
 
 	
-	//Ö®ºó¾ÍÊÇ²¼ÖÃÀ×µÄĞÅÏ¢
+	//ä¹‹åå°±æ˜¯å¸ƒç½®é›·çš„ä¿¡æ¯
 	SetMine(mine,ROW,COL);
 
-	//´òÓ¡
+	//æ‰“å°
 	DisplayBoard(show, ROW, COL);
 
 
-	//²éÀ×
+	//æŸ¥é›·
 	FineMine(mine,show,ROW,COL);
 }
 
 int main()
 {
-	//ÖÆ×÷É¨À×ÓÎÏ·
-	//²¼ÖÃºÃÀ×µÄĞÅÏ¢
-	//ÅÅ²é³öÀ×µÄĞÅÏ¢
+	//åˆ¶ä½œæ‰«é›·æ¸¸æˆ
+	//å¸ƒç½®å¥½é›·çš„ä¿¡æ¯
+	//æ’æŸ¥å‡ºé›·çš„ä¿¡æ¯
 
 	int input = 0;
 	srand((unsigned int)time(NULL));
@@ -43,7 +43,7 @@ int main()
 	do
 	{
 		menu();
-		printf("ÇëÊäÈëÊı×Ö:>");
+		printf("è¯·è¾“å…¥æ•°å­—:>");
 		scanf("%d",&input);
 		switch (input)
 		{
@@ -51,10 +51,10 @@ int main()
 			game();
 			break;
 		case 0:
-			printf("ÍË³öÓÎÏ·!\n");
+			printf("é€€å‡ºæ¸¸æˆ!\n");
 			break;
 		default: 
-			printf("ÊäÈëµÄÊı×ÖÓĞÎó£¬ÇëÖØĞÂÊäÈë!\n");
+			printf("è¾“å…¥çš„æ•°å­—æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥!\n");
 			break;
 		}
 
